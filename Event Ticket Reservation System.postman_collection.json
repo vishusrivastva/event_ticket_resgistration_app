@@ -88,7 +88,7 @@
 		{
 			"name": "Cancel Reservation",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
