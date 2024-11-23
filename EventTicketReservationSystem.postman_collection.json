@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "2db2bb6f-030e-4ef7-b6e6-d88e71f37bcf",
+		"name": "Event Ticket Reservation System",
+		"description": "API collection for event ticket reservations, including reserve, view, cancel, and modify reservation.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31687805"
+	},
+	"item": [
+		{
+			"name": "Reserve Event Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"johndoe@example.com\",\n  \"eventDate\": \"2024-12-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/reservations/reserve",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"reservations",
+						"reserve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Reserved Ticket Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/reservations/attendees?email=johndoe@example.com",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"reservations",
+						"attendees"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "johndoe@example.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View All Attendees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/reservations/attendees?eventDate=2024-12-01",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"reservations",
+						"attendees"
+					],
+					"query": [
+						{
+							"key": "eventDate",
+							"value": "2024-12-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Reservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"johndoe@example.com\",\n  \"eventDate\": \"2024-12-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/reservations/cancel",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"reservations",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify Seat Reservation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"johndoe@example.com\",\n  \"eventDate\": \"2024-12-01\",\n  \"newSeatNumber\": \"A2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/reservations/modify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"reservations",
+						"modify"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}
